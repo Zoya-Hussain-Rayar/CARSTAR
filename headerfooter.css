@@ -174,8 +174,7 @@ nav ul li:nth-child(4).active~.indicator {
     position: absolute;
     width: 400px;
     height: 440px;
-    background: rgba(206, 203, 203, 0.5);
-
+     background: rgba(225, 224, 224, 0.5);
     border: 1px solid rgb(146, 143, 143);
     border-radius: 20px;
     backdrop-filter: blur(20px);
