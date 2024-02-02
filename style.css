@@ -336,19 +336,6 @@ li .litext p,
 }
 
 
-.background-image {
-    height:100%;
-    width: 100%;
-    background-image: url('pics/BMW.jpg');
-    /* Replace with the actual image URL */
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.5s ease;
-}
-
 .parentBox {
     position: relative;
     display: flex;
