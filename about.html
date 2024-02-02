@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About </title>
   <!-- link of Header and footer css -->
-  <link rel="stylesheet" href="headerfooter.css">
+  <link rel="stylesheet" href="css/headerfooter.css">
   <!-- link of Header and footer css -->
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="css/style.css">
 
   <!-- link of font.aesome -->
   <link rel="stylesheet" type="text/css"
@@ -16,6 +16,62 @@
   <!-- link for scroll reveal -->
   <script src="https://unpkg.com/scrollreveal"></script>
 
+  <style>
+    .second {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    flex-direction: column;
+    height: auto;
+    width: 75vw;
+
+
+}
+
+.second .image2 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.second .image2 img {
+    max-width: 600px;
+
+}
+
+.second .text {
+    flex-wrap: wrap;
+    max-width: 800px;
+
+}
+
+.second .text  h3{
+    font-size:2.5rem;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.second .text  p{
+    font-size:1.10rem;
+    margin: 1rem 0;
+}
+@media (max-width:760px) {
+ 
+.second .text  h3{
+    font-size:2.1rem;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.second .text  p{
+    font-size:0.95rem;
+    margin: 1rem 0;
+}   
+}
+  </style>
 </head>
 <body>
     
@@ -134,23 +190,86 @@
     </section> 
     <!-- contact section ends  here -->
 
-
     <!-- second section starts from here -->
     <section class="second">
+
         <div class="image2">
             <img src="pics/img2.png" alt="">
         </div>
         <div class="text">
-            <h1 class="h1">About US</h1>
-            <h3 class="h3">CARSTAR is gateway redefining the art of automotive excellence."</h3>
-            <p class="p">At CARSTAR, we are more than just a destination for exceptional cars; we are curators of
-                driving experiences, merging innovation and elegance to redefine automotive excellence. Discover a
-                journey where passion meets performance, and every drive becomes an expression of distinctive style and
-                unrivaled quality.</p>
-            <a href="about.html" class="btn"> read more</a>
+            <h3 class="h3">Welcome to CARSTAR Automotive Odyssey</h3>
+            <p class="p">Embark on a journey where automotive craftsmanship meets artistic excellence. CARSTAR, the visionary behind this automotive haven, invites you to explore a world beyond ordinary transportation. This is not just a showcase of cars; it's a celebration of design, innovation, and the pure joy of driving.</p>
+            
+            <p class="p">In this automotive sanctuary, each vehicle is carefully selected and meticulously curated to reflect a unique blend of performance and style.CARSTAR believes in the philosophy that a car is not just a mode of transportation; it's an expression of individuality and a testament to the pursuit of perfection.</p>
+            
+            <p class="p">At CARSTAR Automotive Atelier, we redefine automotive excellence by seamlessly merging cutting-edge innovation with timeless elegance. Every vehicle in our collection is a masterpiece, embodying the perfect harmony of form and function. Whether it's a sleek sports car, a powerful SUV, or a classic vintage automobile, each has its own story to tell.</p>
+            
+            <p class="p">Passion is the driving force behind every aspect of our operation. From selecting the finest automobiles to providing unparalleled customer experiences, we are committed to creating a space where automotive enthusiasts can indulge their senses and share in the excitement of the open road.</p>
+            
+            <p class="p">Join us on this exhilarating adventure, where every drive becomes a symphony of distinctive style, unrivaled quality, and the thrill of the road. CARSTAR Automotive Odyssey is not just a destination; it's an immersive experience that transcends the ordinary and redefines the art of automotive excellence.</p>
+            
         </div>
     </section>
     <!-- second section ends here -->
+
+    <section class="faq-section">
+        <h1 class="h1">FAQs</h1>
+        <div class="faq">
+            <div class="ques">
+                <h3> Is this website for a real car showroom or dealership?</h3>
+           <svg width="15" height="10" viewBox="0 0 42 25"> 
+            <path
+             d="M3 3L21 21L39 3"
+             stroke="black"
+             stroke-width="7"
+             stroke-linecap="round"
+             >
+
+           </svg>
+            </div>
+            <div class="ans">
+                <p>No, this website is part of a portfolio project and does not represent a real car showroom or dealership. It is created for demonstration and showcase purposes only.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="ques">
+                <h3>Can I actually buy or sell cars on this website? </h3>
+                <svg width="15" height="10" viewBox="0 0 42 25"> 
+                    <path
+                     d="M3 3L21 21L39 3"
+                     stroke="black"
+                     stroke-width="7"
+                     stroke-linecap="round"
+                     >
+        
+                   </svg>
+            </div>
+            <div class="ans">
+                <p> No, the functionality to buy or sell cars on this website is not real. This is a simulated project to showcase design and development skills</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="ques">
+                <h3>Can I use the design and code from this website for my own project?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25"> 
+                    <path
+                     d="M3 3L21 21L39 3"
+                     stroke="black"
+                     stroke-width="7"
+                     stroke-linecap="round"
+                     >
+        
+                   </svg>
+            </div>
+            <div class="ans">
+                <p>While you can draw inspiration from the design and code, this website is part of a portfolio and not intended for direct reuse. Please respect intellectual property and consider creating your own unique projects.</p>
+            </div>
+        </div>
+        </section>
+
+
 
 
 <!-- footer section starts from here -->
@@ -198,20 +317,16 @@
 
 
 <!-- footer section ends here -->
-<!-- js for about us section --> 
-         
-        <script>
-        ScrollReveal({
-            reset: true,
-            distance: '80px',
-            duration: 1000,
-            delay: 300
-        })
-       
-
-        ScrollReveal().reveal('.image2 img', { delay: 800, origin: 'left' });
-    </script>
-
+<script>
+    ScrollReveal({
+        reset: true,
+        distance: '120px',
+        duration: 1000,
+        delay: 300
+    })
+  
+    ScrollReveal().reveal('.image2 img', { delay: 300, origin: 'left' });
+</script>
     <!--  js for nav bar -->
     <script>
 
@@ -263,5 +378,14 @@
         })
     </script>
 
+<!-- js for FAQ section -->
+<script>
+    const faqs = document.querySelectorAll(".faq");
+    faqs.forEach((faq) => {
+        faq.addEventListener('click', () => {
+            faq.classList.toggle("active");
+        });
+    });
+</script>
 </body>
 </html>
