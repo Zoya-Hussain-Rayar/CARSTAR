@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cars </title>
+    <!-- link of Header and footer css -->
+    <link rel="stylesheet" href="headerfooter.css">
+
+    <!-- link of font.aesome -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- link for scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        
+main{
+    position: relative;
+    max-width: 1100px;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+        .carsBox {
+            width: 100%;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* Three equal columns */
+            gap: 20px;
+            /* Adjust the gap between cards */
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .card {
+            margin-top: 20px;
+            position: relative;
+            width: 310px;
+            height: 270px;
+            background: transparent;
+            transition: all 0.5s ease;
+            cursor: pointer;
+
+        }
+
+        .card .cardBox {
+            position: absolute;
+            inset: 0;
+            background-color: white;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .card .cardBox::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 560px;
+            height: 90px;
+            background: linear-gradient(transparent, rgb(189, 188, 188), rgb(175, 173, 173), rgb(199, 196, 196), transparent);
+            animation: boxanimation 5s linear infinite;
+
+        }
+
+        @keyframes boxanimation {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .card .cardBox::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: rgb(248, 247, 247);
+            border: 6px solid rgb(248, 247, 247);
+        }
+
+        .card .cardimg {
+            position: absolute;
+            width: 300px;
+            height: 260px;
+            z-index: 10;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card .cardimg img {
+            object-fit: cover;
+            margin: 10px 0;
+            width: 80%;
+
+        }
+
+        .card .cardimg h3 {
+            margin: 10px 0;
+            width: 100%;
+
+        }
+        .card .cardimg a{
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: black;
+        }
+        .card .cardimg a:hover{
+            text-decoration: underline;
+            color: #000;
+            font-weight: 500
+        }
+
+       
+   
+         /* Styles for the modal */
+
+      
+
+
+
+/* Styles for the modal */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    z-index: 100;
+    align-items: center;
+    overflow:hidden;
+}
+
+#modal-content {
+    background: white;
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    position: relative; /* Ensure relative positioning for absolute children */
+    display: flex;
+}
+
+#close-modal {
+    cursor: pointer;
+    color: #333;
+    font-size: 40px;
+    font-weight: 900;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1001; /* Ensure higher z-index to be above other content */
+}
+
+.modal-image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-image-box .cardimg {
+    background-color: silver;
+    max-width: 700px;
+    height: 80vh;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image-box .cardimg img {
+    width: 100%;
+}
+
+.modal-details-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: left;
+    margin-left: 20px;
+}
+
+.modal-details-box h3,
+.modal-details-box p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.modal-details-box h3 {
+    font-size: 4rem;
+}
+
+.modal-details-box p {
+    font-size: 1.5rem;
+}
+/* Add a new class for small screen adjustments */
+/* Add a new class for small screen adjustments */
+@media (max-width: 1100px) {
+    .card .cardimg {
+            position: absolute;
+            width: 300px;
+            height: 260px;
+            z-index: 10;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card .cardimg img {
+            object-fit: cover;
+            margin: 10px 0;
+            width: 80%;
+
+        }
+    .carsBox {
+            width: 750px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Three equal columns */
+            gap: 20px;
+            /* Adjust the gap between cards */
+            justify-content: center;
+            align-items: center;
+
+        }
+
+    #modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center; /* Adjust as needed */
+        align-items: center;
+        flex-direction: column;
+        z-index: 100;
+        overflow-x: visible;
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-image-box .cardimg {
+    background-color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%; /* Adjust width for full width on small screens */
+    height: 320px;
+
+}
+.modal-image-box .cardimg img{
+    width: 320px;
+}
+
+    .modal-image-box,
+    .modal-details-box {
+        width: 100%; /* Adjust width for full width on small screens */
+        max-width: 100%; /* Ensure the content does not exceed the screen width */
+        box-sizing: border-box; /* Include padding and border in the total width/height */
+    }
+
+    
+    .modal-details-box {
+        width: 80%;
+        margin-top: 20px; /* Add margin between image and details on small screens */
+    }
+
+    .modal-details-box h3 {
+        font-size: 2.3rem;
+        margin: 5px 0;
+    }
+
+    .modal-details-box p {
+        font-size:1.1rem;
+
+        margin: 1px 3px;
+    }
+
+
+}
+
+
+@media (max-width: 620px) {
+    .card .cardimg{
+        width: 80%;
+        margin: 0 auto;
+        }
+
+.carsBox {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        /* Adjust the gap between cards */
+        justify-content: center;
+        align-items: center;
+        overflow-x:hidden;
+        
+ 
+    }
+    .modal-image-box .cardimg  {
+    background-color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%; /* Adjust width for full width on small screens */
+    margin: 10px auto;
+
+    }
+
+    .modal-image-box .cardimg img  {
+
+    width: 300px; /* Adjust width for full width on small screens */
+    }
+    .modal-details-box h3 {
+        font-size: 1.55rem;
+        margin: 4px 0;
+    }
+    .modal-details-box p {
+        font-size: 0.9rem;
+
+        margin: 1px 2px;
+    }
+
+
+
+}
+
+
+@media (max-width: 400px) {
+
+.carsBox {
+        width: 90%;
+        height: min-content;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* Three equal columns */
+        gap: 5px;
+        /* Adjust the gap between cards */
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        overflow-x:hidden;
+
+    }
+    .modal-image-box .cardimg {
+    background-color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Adjust width for full width on small screens */
+    }
+    .modal-details-box h3 {
+        font-size: 1.4rem;
+        margin: 4px 0;
+    }
+    .modal-details-box p {
+        font-size: 0.7rem;
+
+        margin: 1px 2px;
+    }
+
+
+
+}
+
+
+     </style>
+
+
+</head>
+
+<body>
+    <!-- header section starts -->
+    
+    <header>
+        <div class="logo">
+            <img src="pics/logo.png" alt="">
+            <span>CARSTAR</span>
+        </div>
+        <nav>
+
+
+            <ul>
+                <li class=" list active">
+                    <a href="index.html">
+                        <span class="icon"> <i class="fa-solid fa-house"></i> </span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class=" list ">
+                    <a href="cars.html">
+                        <span class="icon"> <i class="fa-solid fa-car"></i></span>
+                        <span class="text">Cars</span>
+                    </a>
+                </li>
+                <li class=" list ">
+                    <a href="about.html">
+                        <span class="icon"><i class="fa-solid fa-code"></i></span>
+                        <span class="text">About</span>
+                    </a>
+                </li>
+                <li class=" list contactBtn">
+                    <a href="#">
+                        <span class="icon"> <i class="fa-solid fa-user"></i></span>
+                        <span class="text  ">Contact</span>
+                    </a>
+                </li>
+
+                <div class="indicator"></div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- header section ends here -->
+
+    <!-- contact section starts from here -->
+    
+    <section class="contectform">
+        <div class="wrapper">
+            <span class="crossicon"><i class="fa-solid fa-xmark"></i></span>
+
+            <div class="formBox login">
+                <h2>Login from</h2>
+                <form action="#">
+                    <div class="inputBox">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="inputBox">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" required>
+                        <label>Password </label>
+                    </div>
+                    <div class="remember-forgot">
+                        <span class="icon"></span>
+                        <label><input type="checkbox" required> Remember-me</label>
+                        <a href="#">Forgot Password</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="loginRegister">
+                        <p>Don't have an account
+                            <a href="#" class="registerLink">Register</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+
+
+            <div class="formBox register">
+                <h2>Regesteration from</h2>
+                <form action="#">
+                    <div class="inputBox">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" required>
+                        <label>User-Name</label>
+                    </div>
+                    <div class="inputBox">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="inputBox">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" required>
+                        <label>Password </label>
+                    </div>
+                    <div class="remember-forgot">
+                        <span class="icon"></span>
+                        <label><input type="checkbox" required>I agree to terms & conditions</label>
+                        <a href="#">Forgot Password</a>
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                    <div class="loginRegister">
+                        <p>Already have an account
+                            <a href="#" class="loginLink">login</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section> 
+    <!-- contact section ends  here -->
+
+
+    
+
+    <main>
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <div class="carsBox">
+
+            <div class="card" data-modal-target="#modal-1" >
+                <div class="cardBox"></div>
+                <div class="cardimg">
+                    <img src="pics/mercedesE350-removebg-preview.png" alt="Mercedas E350 WHITE WITH GOLD TRIM">
+                    <h3>"Mercedas E350 in WHITE  "</h3>
+                </div>
+            </div>
+            <div class="card" data-modal-target="#modal-2">
+                <div class="cardBox"> </div>
+                <div class="cardimg">
+                    <img src="pics/f30-removebg-preview.png" alt="BMW F30 sedan in shade of blue">
+                    <h3>"BMW F30 sedan in shade of blue"</h3>
+                </div>
+            </div>
+
+
+            <div class="card" data-modal-target="#modal-3">
+                <div class="cardBox"> </div>
+                <div class="cardimg">
+                    <img src="pics/blackaudi-removebg-preview.png" alt="Black Audi with Mustang Body">
+                    <h3>"Black Audi with Mustang Body"</h3>
+                </div>
+            </div>
+
+
+
+            <div class="card" data-modal-target="#modal-4">
+                <div class="cardBox"> </div>
+                <div class="cardimg">
+                    <img src="pics/Lamborghini-removebg-preview.png" alt="Lamborghini  gallardo  convertible">
+                    <h3>" Lamborghini gallardo convertible"</h3>
+                </div>
+            </div>
+
+            <div class="card" data-modal-target="#modal-5">
+                <div class="cardBox"> </div>
+                <div class="cardimg">
+                    <img src="pics/farrari-removebg-preview.png" alt="Ferrari Van SUV">
+                    <h3>"Ferrari Van SUV "</h3>
+                </div>
+            </div>
+
+            <div class="card" data-modal-target="#modal-6">
+                <div class="cardBox"></div>
+                <div class="cardimg">
+                    <img src="pics/onebg.png" alt="Beautiful Black chrome BMW M5">
+                    <h3>" Beautiful Black chrome BMW M5"</h3>
+                </div>
+            </div>
+
+
+
+            <div class="card" data-modal-target="#modal-7">
+                <div class="cardBox"></div>
+                <div class="cardimg">
+                    <img src="pics/Porsche-removebg-preview.png" alt="Porsche 911 Carrera convertible burgundy">
+                    <h3>"Porsche 911 Carrera convertible burgundy"</h3>
+                </div>
+            </div>
+
+
+
+            <div class="card" data-modal-target="#modal-8">
+
+                <div class="cardBox"></div>
+                <div class="cardimg">
+
+                    <img src="pics/mercedesE350-removebg-preview.png" alt="Mercedas E350  WHITE WITH GOLD TRIM">
+                    <h3>"Mercedas-E350 WITH GOLD TRIM "</h3>
+                </div>
+            </div>
+
+            <div class="card" data-modal-target="#modal-9">
+                <div class="cardBox"></div>
+                <div class="cardimg">
+                    <img src="pics/twobg.png" alt="45mm lens signal yellow Porsche Caym">
+                    <h3>"45mm lens signal yellow Porsche Caym"</h3>
+                </div>
+            </div>
+
+        </div>
+    </main>
+<!-- Modal structure -->
+<div id="modal" class="modal">
+    <div id="modal-content" class="modal-content"></div>
+
+        
+        <span id="close-modal" class="close-modal"><i class="fas fa-times"></i> </span>
+        <!-- Content of the modal will be filled by JavaScript -->
+</div>
+    <!-- footer section starts from here -->
+   
+    <footer class="footer">
+        <div class="row">
+            <div class="col">
+                <div class="logo">
+                    <img src="pics/logo.png" alt="">
+                    <span>CARSTAR</span>
+                </div>
+                <p>"Navigate your automotive dreams with confidence at CARSTAR, where excellence meets the road. Join us
+                    in shaping the future of driving experiences."</p>
+            </div>
+            <div class="col">
+                <h3>Visit-Us</h3>
+                <p>CARSTAR consulting services</p>
+                <p>123 Main Street, Suite 456</p>
+                <p>Cityville, State 78901</p>
+                <p class="gmail">carstar2006@gmail.com</p>
+                <p>92+ 0-123-345-677</p>
+            </div>
+            <div class="col">
+                <h3>links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cars.html">Cars</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a class="contactBtn" href="#">Contact</a></li>
+
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Newsteller</h3>
+                <form>
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="enter your email" required>
+                    <button type="submit"> <i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+
+
+        </div>
+    </footer>
+
+
+    <!-- footer section ends here -->
+
+
+    
+
+    <!--  js for nav bar -->
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the second list item
+            const carsListItem = document.querySelectorAll('.list')[1];
+
+            // Remove 'active' class from all list items
+            const list = document.querySelectorAll('.list');
+            list.forEach((item) => item.classList.remove('active'));
+
+            // Add 'active' class to the second list item
+            carsListItem.classList.add('active');
+        });
+
+        const list = document.querySelectorAll('.list');
+
+        function activeLink() {
+            list.forEach((item) => item.classList.remove('active'));
+            this.classList.add('active');
+        }
+
+        list.forEach((item) => item.addEventListener('click', activeLink));
+    </script>
+
+
+    <!--script fot login and register   -->
+
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const registerLink = document.querySelector('.registerLink');
+        const loginLink = document.querySelector('.loginLink');
+        const contactBtn = document.querySelector('.contactBtn');
+        const crossicon = document.querySelector('.crossicon')
+
+
+
+        registerLink.addEventListener('click', () => {
+            wrapper.classList.add('active')
+        })
+        loginLink.addEventListener('click', () => {
+            wrapper.classList.remove('active')
+        })
+        contactBtn.addEventListener('click', () => {
+            wrapper.classList.add('activeBtn')
+        })
+        crossicon.addEventListener('click', () => {
+            wrapper.classList.remove('activeBtn')
+        })
+    </script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all card elements
+        var cards = document.querySelectorAll('.card');
+
+        // Add click event listener to each card
+        cards.forEach(function (card, index) {
+            card.addEventListener('click', function () {
+                // Get alt attribute of the clicked card's image
+                var altText = card.querySelector('.cardimg img').alt;
+
+                // Fetch car details based on alt attribute
+                fetchCarDetails(altText)
+                    .then(function (carDetails) {
+                        // Set the modal content with the fetched car details
+                        document.getElementById('modal-content').innerHTML = `
+                            <span id="close-modal" class="close-modal"><i class="fas fa-times"></i></span>
+                            <div class="modal-image-box">
+                                <div class="cardimg">
+                                    <img src="${carDetails.image}" alt="${carDetails.model}">
+                                </div>
+                            </div>
+                            <div class="modal-details-box">
+                                <h3>"${carDetails.model}"</h3>
+
+                                <p><strong>Model:</strong> ${carDetails.model}</p>
+                                <p><strong>Body Style:</strong> ${carDetails.bodyStyle}</p>
+                                <p><strong>Color:</strong> ${carDetails.color}</p>
+                                <p><strong>Engine:</strong> ${carDetails.engine}</p>
+                                <p><strong>Performance:</strong> ${carDetails.performance}</p>
+                                <p><strong>Interior:</strong> ${carDetails.interior}</p>
+                                <p><strong>Safety:</strong> ${carDetails.safety}</p>
+                                <p><strong>Technology:</strong> ${carDetails.technology}</p>
+                            </div>
+                        `;
+
+                        // Show the modal
+                        document.getElementById('modal').style.display = 'flex';
+                    })
+                    .catch(function (error) {
+                        console.error('Error fetching car details:', error);
+                    });
+            });
+        });
+
+        // Close modal when clicking the close button
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        // Function to fetch car details from an external source (replace with your actual API or file)
+        function fetchCarDetails(altText) {
+            // Simulate fetching details from an API or file
+            return new Promise(function (resolve) {
+                var carDetailsMap = {
+    "Mercedas E350 WHITE WITH GOLD TRIM": {
+        model: "Mercedes-Benz E350",
+        bodyStyle: "Sedan",
+        color: "White",
+        engine: "The E350 typically features a powerful engine, providing a balance between performance and efficiency.",
+        performance: "Known for its smooth and comfortable ride, the E350 offers a blend of performance and luxury. The exact specifications may vary depending on the model year.",
+        interior: "The interior of the E350 is crafted with high-quality materials and offers a spacious and luxurious cabin. Features may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Mercedes-Benz vehicles are known for their advanced safety features. The E350 may include features such as adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The E350 is equipped with the latest technology, including a user-friendly infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/mercedesE350-removebg-preview.png"
+    },
+    "BMW F30 sedan in shade of blue": {
+        model: "BMW F30",
+        bodyStyle: "Sedan",
+        color: "Blue",
+        engine: "The BMW F30 sedan is equipped with a high-performance engine, providing an exhilarating driving experience.",
+        performance: "Known for its iconic design and powerful performance, the F30 offers a thrilling driving experience. Specifications may vary depending on the model year.",
+        interior: "The interior of the F30 sedan is designed with a focus on driver-oriented features and high-quality materials. It may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "BMW prioritizes safety with advanced features. The F30 may include adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The F30 is equipped with cutting-edge technology, including a high-end infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/f30-removebg-preview.png"
+    },
+    "Black Audi with Mustang Body": {
+        model: "Audi",
+        bodyStyle: "Sedan",
+        color: "Black",
+        engine: "The Audi sedan typically features a powerful engine, providing a balance between performance and efficiency.",
+        performance: "Known for its smooth and comfortable ride, the Audi offers a blend of performance and luxury. The exact specifications may vary depending on the model year.",
+        interior: "The interior of the Audi is crafted with high-quality materials and offers a spacious and luxurious cabin. Features may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Audi vehicles are known for their advanced safety features. The Audi may include features such as adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The Audi is equipped with the latest technology, including a user-friendly infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/blackaudi-removebg-preview.png"
+    },
+    "Lamborghini  gallardo  convertible": {
+        model: "Lamborghini Gallardo",
+        bodyStyle: "Convertible",
+        color: "Yellow",
+        engine: "The Gallardo typically features a high-performance engine, providing an exhilarating driving experience.",
+        performance: "Known for its iconic design and powerful performance, the Gallardo offers a thrilling convertible experience. Specifications may vary depending on the model year.",
+        interior: "The interior of the Gallardo is designed with a focus on driver-oriented features and high-quality materials. It may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Lamborghini vehicles prioritize safety with advanced features. The Gallardo may include adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The Gallardo is equipped with cutting-edge technology, including a high-end infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/Lamborghini-removebg-preview.png"
+    },
+    "Ferrari Van SUV": {
+        model: "Ferrari Van SUV",
+        bodyStyle: "SUV",
+        color: "Red",
+        engine: "The Ferrari Van SUV typically features a high-performance engine, providing an exhilarating driving experience.",
+        performance: "Known for its iconic design and powerful performance, the Ferrari Van SUV offers a thrilling SUV experience. Specifications may vary depending on the model year.",
+        interior: "The interior of the Ferrari Van SUV is designed with a focus on driver-oriented features and high-quality materials. It may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Ferrari vehicles prioritize safety with advanced features. The Van SUV may include adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The Ferrari Van SUV is equipped with cutting-edge technology, including a high-end infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/farrari-removebg-preview.png"
+    },
+    "Beautiful Black chrome BMW M5": {
+        model: "BMW M5",
+        bodyStyle: "Sedan",
+        color: "Black Chrome",
+        engine: "The BMW M5 typically features a high-performance engine, providing an exhilarating driving experience.",
+        performance: "Known for its sleek design and powerful performance, the M5 offers a thrilling driving experience. Specifications may vary depending on the model year.",
+        interior: "The interior of the M5 sedan is designed with a focus on driver-oriented features and high-quality materials. It may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "BMW prioritizes safety with advanced features. The M5 may include adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The M5 is equipped with cutting-edge technology, including a high-end infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/onebg.png"
+    },
+    "Porsche 911 Carrera convertible burgundy": {
+        model: "Porsche 911 Carrera",
+        bodyStyle: "Convertible",
+        color: "Burgundy",
+        engine: "The 911 Carrera typically features a high-performance engine, providing an exhilarating driving experience.",
+        performance: "Known for its iconic design and powerful performance, the 911 Carrera offers a thrilling convertible experience. Specifications may vary depending on the model year.",
+        interior: "The interior of the 911 Carrera is designed with a focus on driver-oriented features and high-quality materials. It may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Porsche vehicles prioritize safety with advanced features. The 911 Carrera may include adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The 911 Carrera is equipped with cutting-edge technology, including a high-end infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/Porsche-removebg-preview.png"
+    },
+    "Mercedas E350  WHITE WITH GOLD TRIM": {
+        model: "Mercedes-Benz E350",
+        bodyStyle: "Sedan",
+        color: "White with Gold Trim",
+        engine: "The E350 typically features a powerful engine, providing a balance between performance and efficiency.",
+        performance: "Known for its smooth and comfortable ride, the E350 offers a blend of performance and luxury. The exact specifications may vary depending on the model year.",
+        interior: "The interior of the E350 is crafted with high-quality materials and offers a spacious and luxurious cabin. Features may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Mercedes-Benz vehicles are known for their advanced safety features. The E350 may include features such as adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The E350 is equipped with the latest technology, including a user-friendly infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/mercedesE350-removebg-preview.png"
+    },
+    "45mm lens signal yellow Porsche Caym": {
+        model: "Porsche Caym",
+        bodyStyle: "Convertible",
+        color: "Signal Yellow",
+        engine: "The Porsche Caym typically features a high-performance engine, providing an exhilarating driving experience.",
+        performance: "Known for its iconic design and powerful performance, the Caym offers a thrilling convertible experience. Specifications may vary depending on the model year.",
+        interior: "The interior of the Caym is designed with a focus on driver-oriented features and high-quality materials. It may include advanced infotainment systems, premium audio, and comfortable seating.",
+        safety: "Porsche vehicles prioritize safety with advanced features. The Caym may include adaptive cruise control, lane departure warning, and collision prevention assistance.",
+        technology: "The Caym is equipped with cutting-edge technology, including a high-end infotainment system, smartphone integration, and advanced driver-assistance features.",
+        image: "pics/twobg.png"
+    },
+    // Add more entries for other cars
+};
+
+
+                // Simulate a delay to simulate asynchronous fetching
+                setTimeout(function () {
+                    resolve(carDetailsMap[altText] || {});
+                }, 500);
+            });
+        }
+    });
+</script>
+
+</body>
+
+</html>
