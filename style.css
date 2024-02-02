@@ -699,7 +699,7 @@ fifth .container .box .face2 p{
 
 @media (max-width : 710px) {
     .second {
-        height: 80vh;
+        height:560px;
     }
     .second .image2 img {
         margin: 0;
