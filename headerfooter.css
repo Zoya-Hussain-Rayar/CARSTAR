@@ -480,6 +480,41 @@ footer .row .col form button {
         background-color: #f5f4f3;
     }
 
+    .indicator {
+        position: absolute;
+        top: 1%;
+        height: 65px;
+        width: 65px;
+        border-radius: 50%;
+        background-color: silver;
+        transition: 0.5s;
+        border: 5px solid white;
+    }
+    
+    .indicator::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -40%;
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        border-top-right-radius: 20px;
+        box-shadow: 1px -10px 0 0 white;
+    }
+    
+    .indicator::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -40%;
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        border-top-left-radius: 20px;
+        box-shadow: 1px -10px 0 0 white;
+    }
+
 }
 
 
@@ -548,9 +583,10 @@ footer .row .col form button {
         transition: all 0.5s;
     }
     
+    
     .indicator {
         position: absolute;
-        bottom: 91.2%;
+        top: 1%;
         height: 65px;
         width: 65px;
         border-radius: 50%;
@@ -582,7 +618,6 @@ footer .row .col form button {
         border-top-left-radius: 20px;
         box-shadow: 1px -10px 0 0 white;
     }
-    
     
     
     nav ul li.active a .text {
