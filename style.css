@@ -753,7 +753,7 @@ fifth .container .box .face2 p{
 .fourth .scroll-container .background-image {
     height:120vh;
     width: 100%;
-    background-image: url('../pics/BMW.jpg');
+    background-image: url('pics/BMW.jpg');
     /* Replace with the actual image URL */
     background-size: cover;
     background-position: center;
