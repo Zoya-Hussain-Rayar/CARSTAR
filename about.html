@@ -134,9 +134,23 @@
     </section> 
     <!-- contact section ends  here -->
 
-    <section class="about">
-     
+
+    <!-- second section starts from here -->
+    <section class="second">
+        <div class="image2">
+            <img src="pics/img2.png" alt="">
+        </div>
+        <div class="text">
+            <h1 class="h1">About US</h1>
+            <h3 class="h3">CARSTAR is gateway redefining the art of automotive excellence."</h3>
+            <p class="p">At CARSTAR, we are more than just a destination for exceptional cars; we are curators of
+                driving experiences, merging innovation and elegance to redefine automotive excellence. Discover a
+                journey where passion meets performance, and every drive becomes an expression of distinctive style and
+                unrivaled quality.</p>
+            <a href="about.html" class="btn"> read more</a>
+        </div>
     </section>
+    <!-- second section ends here -->
 
 
 <!-- footer section starts from here -->
@@ -184,6 +198,19 @@
 
 
 <!-- footer section ends here -->
+<!-- js for about us section --> 
+         
+        <script>
+        ScrollReveal({
+            reset: true,
+            distance: '80px',
+            duration: 1000,
+            delay: 300
+        })
+       
+
+        ScrollReveal().reveal('.image2 img', { delay: 800, origin: 'left' });
+    </script>
 
     <!--  js for nav bar -->
     <script>
