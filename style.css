@@ -698,6 +698,9 @@ fifth .container .box .face2 p{
 }
 
 @media (max-width : 710px) {
+    .second {
+        height: 80vh;
+    }
     .second .image2 img {
         margin: 0;
         width: 350px;
@@ -753,10 +756,25 @@ fifth .container .box .face2 p{
     }
 
 
+.fourth .scroll-container .background-image {
+    height: 90vh;
+    width: 100%;
+    background-image: url('pics/BMW.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    object-fit: cover;
+    
+    transition: transform 0.5s ease-in-out;
+}
 
     
 .fourth .scroll-container {
-    height: 500px;
+    height: 400px;
     overflow: hidden;
     position: relative;
     margin: 5rem 0;
