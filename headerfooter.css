@@ -417,6 +417,8 @@ footer .row .col form {
 
 footer .row .col form input {
     width: 100%;
+    min-width: 180px;
+    max-width: 400px;
     background: transparent;
     border: 0;
     border-bottom: 1px solid #292929;
@@ -432,7 +434,7 @@ footer .row .col form input {
 
 footer .row .col form i {
     font-size: 2rem;
-    color: #222;
+    color: #050505;
     ;
 }
 
