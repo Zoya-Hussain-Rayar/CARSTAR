@@ -418,7 +418,6 @@ footer .row .col form {
 footer .row .col form input {
     width: 100%;
     min-width: 180px;
-    max-width: 400px;
     background: transparent;
     border: 0;
     border-bottom: 1px solid #292929;
