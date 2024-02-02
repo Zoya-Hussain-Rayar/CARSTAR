@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* stylying for first section starts from here */
+.first {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    width: 80vw;
+    max-width: 1500px;
+}
+
+
+.first .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 60%;
+    max-width: 550px;
+}
+
+
+.first .text .h1 span {
+    color: rgb(136, 135, 135);
+    display: inline-block;
+}
+
+.h1 {
+    overflow: hidden;
+    font-size: 2.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-weight: 900;
+    line-height: 1;
+    width: 100%;
+    margin-bottom: 15px;
+
+    text-align: center;
+    /* Adjust text alignment */
+}
+
+.h3 {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #0f0f0f;
+    text-align: center;
+}
+
+.p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    text-align: center;
+
+}
+
+.first .image1 {
+    width: 45%;
+
+    display: flex;
+    justify-self: right;
+    align-items: center;
+}
+
+.first .image1 img {
+    width: 430px;
+    animation: imganimation 5s ease 1;
+    transition: all 0.5s;
+}
+
+@keyframes imganimation {
+    0% {
+        transform: scale(0.30, 0.30);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+/* stylying for first section ends  here */
+
+/* stylying for second section starts from here */
+.second {
+    margin: 0 auto;
+    background-color: silver;
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.second .image2 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second .image2 img {
+    max-width: 500px;
+
+}
+
+.second .text {
+    max-width: 550px;
+    flex-wrap: wrap;
+
+}
+
+.second .text h1,
+.second .text h3,
+.second .text p {
+    text-align: left;
+}
+.second .text .btn{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 10px 0;
+    transition: all o.5s ease;
+}
+.second .text .btn:hover{
+    text-decoration: underline;
+}
+
+/* stylying for second section ends  here */
+
+
+/* stylying for third section starts from   here */
+.third {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 45px 0;
+}
+
+.third .scroller {
+    max-width: 1100px;
+    /* outline: 3px solid rgb(27, 26, 26); */
+    overflow: hidden;
+}
+
+.third .scroller .list {
+    margin: 0;
+    padding-inline: 0;
+    padding-block: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scroller .list li {
+    cursor: pointer;
+    max-width: 220px;
+    height: 320px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem -0.25rem rgb(102, 100, 100);
+}
+
+.scroller .list li i {
+    font-size: 4rem;
+    background-color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: auto;
+    height: 45%;
+}
+
+.scroller .list li .litext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 55%;
+    align-items: center;
+
+}
+
+.scroller .list li .litext h2 {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 4px;
+}
+
+li .litext p,
+.box .face p {
+    font-size: 0.70rem;
+    line-height: 0.9rem;
+    text-align: center;
+    margin: 0 10px;
+    font-weight: 400;
+    margin-bottom: 10px;
+
+
+}
+.scroller[data-animated=true] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, rgb(90, 89, 89) 20%, rgb(90, 89, 89) 80%, transparent);
+    mask: linear-gradient(90deg, transparent, rgb(90, 89, 89) 20%, rgb(90, 89, 89) 80%, transparent);
+}
+
+.scroller[data-animated=true] .list {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+/* 
+.scroller[dare-direction = "right"] {
+    --_animation-direction : reverse ;
+} */
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 1rem));
+    }
+}
+
+
+/* Add this to your existing CSS */
+
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding:20px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 340px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 440px;
+    overflow-y: auto;
+}
+.modal-content i{
+    font-size: 9rem;
+    text-align: center;
+    background: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius: 0.5rem;
+    height: 66%;
+    width: 100%;
+    padding: auto;
+}
+.modal-content h2{
+    text-align: center;
+    margin: 12px 0;
+    font-size: 2rem;
+
+}
+.modal-content p {
+    text-align: center;
+
+    line-height: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -3px;
+    right: 2px;
+    font-size:2.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+
+
+/* stylying for third section ends  here */
+
+
+/* styling for fourth section starts from   here */
+
+
+.fourth .scroll-container {
+    margin: 4rem 0;
+    height: 490px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    object-fit: cover;
+}
+
+.fourth .scroll-container .background-image {
+    height: 110vh;
+    width: 100%;
+    background-image: url('pics/BMW.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.background-image {
+    height:100%;
+    width: 100%;
+    background-image: url('pics/BMW.jpg');
+    /* Replace with the actual image URL */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease;
+}
+
+.parentBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 490px;
+}
+
+.parentBox .box {
+    padding: 20px 0;
+    width: 280px;
+    height: 230px;
+    margin: auto 10px;
+    display: flex;
+    background-color: white;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.parentBox .box .image {
+    width: 90%;
+    height: 80%;
+}
+
+.parentBox .box .image img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.parentBox .box .details {
+    width: 90%;
+    height: 20%;
+    text-align: center;
+}
+
+/* styling for fourth  section ends  here */
+
+
+/* stylying for fifth section which is customers review section starts from   here */
+.fifth {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.fifth h1 {
+    margin-bottom: 20px;
+}
+
+.fifth .container {
+    width: 1000px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.fifth .container .box {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: translateY(200px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.fifth .container .box.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.fifth .container .box.visible:nth-child(2) {
+    transition-delay: 0.2s;
+    /* Delay for the second box */
+}
+
+.fifth .container .box.visible:nth-child(3) {
+    transition-delay: 0.4s;
+    /* Delay for the third box */
+}
+
+
+.fifth .container .box .face1 {
+    width: 300px;
+    height: 220px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(118, 116, 116);
+    cursor: pointer;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.fifth .container .box .face1 .roundpic {
+    width: 50%;
+    height: 80%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.fifth .container .box .face1 .roundpic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+fifth .container .box .face2 p{
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+}
+.fifth .container .box .face2 {
+    transform: translateY(-133px);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #f5f4f3;
+    transition: all 0.9s ease;
+    border-bottom: 2px solid gray;
+    padding: 22px;
+}
+
+.fifth .container .box:hover .face2 {
+    transform: translateY(0);
+}
+/* styling for faq section sarts from here */
+.faq-section{ 
+    width: 70%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.faq{
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgb(16, 16, 16);
+    cursor: pointer;
+    color: rgb(16, 16, 16);
+}
+
+.ques{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ques h3{
+    font-size: 1.3rem;
+}
+.ans {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease ;
+}
+.ans  p{
+    padding-top: 1.1rem;
+    line-height: 1.3;
+    font-size: 1rem;
+}
+.faq.active  .ans {
+    max-height: 300px;
+}
+/* media quarries starts from here */
+
+@media (max-width : 1100px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+   
+
+    .first {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 90vh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .first .text {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .first .image1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .second {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        width: 100vw;
+    }
+
+    .second .image2 {
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    .second .image2 img {
+        margin: 0;
+        width: 450px;
+    }
+
+    .second .text {
+        margin: 0 auto;
+        margin-top: 0;
+        margin-bottom: 40px;
+        text-align: left;
+        max-width: 400px;
+    }
+
+    .third .scroller {
+        max-width: 680px;
+        overflow: hidden;
+    }
+
+    .scroller .list li {
+        max-width: 190px;
+        height: 260px;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem -0.25rem rgb(102, 100, 100);
+    }
+
+    .scroller .list li i {
+        font-size: 3.1rem;
+        background-color: silver;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 0.5rem;
+        padding: auto;
+        height: 40%;
+    }
+
+    .scroller .list li .litext h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 9px 0;
+    }
+
+    .scroller .list li .litext p {
+        font-size: 0.7rem;
+        line-height: 0.8rem;
+        text-align: center;
+        margin: 0 8px;
+        font-weight: 400;
+        margin-bottom: 9px;
+    }
+
+    .fifth .container {
+        width: 96%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .fifth .container .box {
+        width: 29%;
+        transition: 0.5s;
+        margin: 0 9px;
+    }
+
+    .fifth .container .box .face1 {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        background-color:rgb(246, 245, 245);
+        cursor: pointer;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+    .fifth .container .box .face1 .roundpic {
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .fifth .container .box .face2 {
+        transform: translateY(-118px);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        background-color: #f5f4f3;
+        transition: all 0.9s ease;
+        border-bottom: 2px solid gray;
+        padding: 25px 17px;
+    }
+}
+
+@media (max-width:940px) {
+    .fifth .container .box .face2 {
+        transform: translateY(-150px);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        background-color: #f5f4f3;
+        transition: all 0.9s ease;
+        border-bottom: 2px solid gray;
+        padding: 6px 3px 20px 3px;
+    }
+
+    .parentBox .box {
+        padding: 20px 0;
+        width: 220px;
+        height: 200px;
+        margin: auto 5px;
+        display: flex;
+        background-color: white;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width : 710px) {
+    .second .image2 img {
+        margin: 0;
+        width: 350px;
+    }
+
+    
+.second .text {
+    max-width: 550px;
+    flex-wrap: wrap;
+    margin: 20px;
+
+}
+    .third .scroller {
+        max-width: 400px;
+        overflow: hidden;
+    }
+
+    .scroller .list li {
+        max-width: 150px;
+        height: 260px;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem -0.25rem rgb(102, 100, 100);
+    }
+
+    .scroller .list li i {
+        font-size: 2.8rem;
+        background-color: silver;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 0.5rem;
+        padding: auto;
+        height: 35%;
+    }
+
+    .scroller .list li .litext h2 {
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-align: center;
+        margin: 5px 0;
+        margin-top: 10px;
+    }
+
+    .scroller .list li .litext p {
+        font-size: 0.7rem;
+        line-height: 0.8rem;
+        text-align: center;
+        margin: 0 4px;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+
+
+
+    
+.fourth .scroll-container {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    margin: 5rem 0;
+}
+    /* media querry for section  four  */
+    .parentBox .box {
+        padding: 20px 0;
+        width: 160px;
+        height: 145px;
+        margin: auto 2px;
+        display: flex;
+        background-color: white;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .parentBox .box .details {
+        width: 90%;
+        height: 20%;
+        text-align: center;
+        font-size: 0.7rem;
+    }
+
+    /* media querry for section  five  */
+    .fifth .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fifth .container .box {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fifth .container .box .face1 {
+        width: 300px;
+        height: 220px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(118, 116, 116);
+        cursor: pointer;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+    .fifth .container .box .face1 .roundpic {
+        width: 50%;
+        height: 80%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .fifth .container .box .face2 {
+        transform: translateY(-100px);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        background-color: #f5f4f3;
+        transition: all 0.9s ease;
+        padding: 15px 20px 25px 20px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width:450px) {
+
+    /* media querry for section  four  */
+    .parentBox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 500px;
+    }
+
+    .parentBox .box {
+        padding: 10px 0;
+        width: 120px;
+        height: 105px;
+        margin: 0 2px;
+        display: flex;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .parentBox .box .details {
+        width: 90%;
+        height: 20%;
+        text-align: center;
+        font-size: 0.6rem;
+    }
+}
